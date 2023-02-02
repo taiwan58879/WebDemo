@@ -7,19 +7,13 @@ namespace BlazorApp1.Controllers
     [ApiController]
     public class ActionTokenController : ControllerBase
     {
-
-        public ActionTokenController()
-        {
-
-        }
-
         [HttpPost("[action]")]
-        public WeatherForecast Authenticate()
+        public WeatherForecast Authenticate(AuthenticateParam authenticateParam)
         {
             return new WeatherForecast()
             {
                 Date = DateTime.Now,
-                Summary = "Hello World",
+                Summary = authenticateParam.Name,
                 TemperatureC = 32,
             };
         }
